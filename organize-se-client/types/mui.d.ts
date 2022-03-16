@@ -1,3 +1,4 @@
+import type {} from '@mui/lab/themeAugmentation';
 export {};
 
 declare module '@mui/material/styles/createPalette' {
@@ -6,3 +7,9 @@ declare module '@mui/material/styles/createPalette' {
     lighter?: string;
   }
 }
+
+// declare module '@mui/material/styles/createTheme'{
+//   interface Theme {
+
+//   }
+// }

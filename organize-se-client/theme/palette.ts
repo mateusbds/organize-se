@@ -2,39 +2,39 @@ import { SimplePaletteColorOptions } from '@mui/material';
 import { ColorPartial, TypeAction, TypeBackground, TypeText, PaletteOptions } from '@mui/material/styles/createPalette';
 
 export const primary: SimplePaletteColorOptions = {
-  main: '#1976d2',
-  light: '#42a5f5',
-  dark: '#1565c0',
+  main: '#5D64C0',
+  light: '#6C72C6',
+  dark: '#4F56BA',
 };
 
 export const secondary: SimplePaletteColorOptions = {
-  main: '#9c27b0',
-  light: '#ba68c8',
-  dark: '#7b1fa2',
+  main: '#A6C9B5',
+  light: '#B3D0C0',
+  dark: '#9AC1AB',
 };
 
 export const error: SimplePaletteColorOptions = {
-  main: '#d32f2f',
-  light: '#ef5350',
-  dark: '#c62828',
+  main: '#F32B4C',
+  light: '#F43E5C',
+  dark: '#E70D32',
 };
 
 export const warning: SimplePaletteColorOptions = {
-  main: '#ed6c02',
-  light: '#ff9800',
-  dark: '#e65100',
+  main: '#F9FF85',
+  light: '#FAFF99',
+  dark: '#F8FF70',
 };
 
 export const info: SimplePaletteColorOptions = {
-  main: '#0288d1',
-  light: '#03a9f4',
-  dark: '#01579b',
+  main: '#047777',
+  light: '#058A8A',
+  dark: '#046262',
 };
 
 export const success: SimplePaletteColorOptions = {
-  main: '#2e7d32',
-  light: '#4caf50',
-  dark: '#1b5e20',
+  main: '#6C9D7C',
+  light: '#78A587',
+  dark: '#629372',
 };
 
 export const grey: ColorPartial = {

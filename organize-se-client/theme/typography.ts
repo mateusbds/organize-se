@@ -45,6 +45,14 @@ const typography: TypographyOptions = {
     fontSize: pxToRem(14),
     textTransform: 'capitalize',
   },
+  body1: {
+    lineHeight: 1.5,
+    fontSize: pxToRem(16),
+  },
+  body2: {
+    lineHeight: 22 / 14,
+    fontSize: pxToRem(14),
+  },
 };
 
 export default typography;

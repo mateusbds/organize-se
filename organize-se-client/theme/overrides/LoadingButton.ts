@@ -1,8 +1,8 @@
 import { Components, Theme } from '@mui/material';
 
-export default function Button(theme: Theme): Components<Theme> {
+export default function LoadingButton(theme: Theme): Components<Theme> {
   return {
-    MuiButton: {
+    MuiLoadingButton: {
       styleOverrides: {
         root: {
           borderRadius: Number(theme.shape.borderRadius) * 2,

@@ -13,6 +13,7 @@ export default function Baseline(theme: Theme): Components<Theme> {
         '#__next': {
           height: '100%',
           display: 'flex',
+          flexDirection: 'column',
         },
       },
     },

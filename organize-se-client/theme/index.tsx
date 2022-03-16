@@ -9,7 +9,7 @@ import typography from './typography';
 const ThemeConfig: React.FC = ({ children }) => {
   const themeOptions: ThemeOptions = useMemo(
     () => ({
-      palette: palette.dark,
+      palette: palette.light,
       typography,
     }),
     []
