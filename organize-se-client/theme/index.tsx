@@ -1,21 +1,24 @@
 import { useMemo } from 'react';
-import { CssBaseline, ThemeOptions } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { CssBaseline, ThemeOptions, createTheme, ThemeProvider } from '@mui/material';
+import { ptBR } from '@mui/material/locale';
 
 import componentsOverrides from './overrides';
 import { palette } from './palette';
 import typography from './typography';
+import { shadows, customShadows } from './shadows';
 
 const ThemeConfig: React.FC = ({ children }) => {
   const themeOptions: ThemeOptions = useMemo(
     () => ({
-      palette: palette.light,
+      palette: palette.dark,
+      shadows: shadows.dark,
+      customShadows: customShadows.dark,
       typography,
     }),
     []
   );
 
-  const theme = createTheme({ ...themeOptions });
+  const theme = createTheme({ ...themeOptions }, ptBR);
   theme.components = componentsOverrides(theme);
 
   return (

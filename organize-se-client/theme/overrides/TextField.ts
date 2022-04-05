@@ -1,21 +1,29 @@
 import { Components, Theme } from '@mui/material';
 
-export default function Button(theme: Theme): Components<Theme> {
+export default function TextField(theme: Theme): Components<Theme> {
   return {
-    MuiButton: {
+    MuiInputBase: {
       styleOverrides: {
         root: {
           borderRadius: Number(theme.shape.borderRadius) * 2,
         },
-        contained: {
-          borderRadius: Number(theme.shape.borderRadius) * 2,
-        },
-        outlined: {
+      },
+    },
+    MuiFilledInput: {
+      styleOverrides: {
+        root: {
           borderRadius: Number(theme.shape.borderRadius) * 2,
         },
       },
     },
-    MuiButtonBase: {
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          borderRadius: Number(theme.shape.borderRadius) * 2,
+        },
+      },
+    },
+    MuiInput: {
       styleOverrides: {
         root: {
           borderRadius: Number(theme.shape.borderRadius) * 2,

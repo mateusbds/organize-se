@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
 
-import { makeLogin } from '@main/factories/pages/loginFactory';
+import makeLoginPage from '@main/factories/pages/makeLogin';
 
 const LoginPage: NextPage = () => {
-  return makeLogin();
+  return makeLoginPage();
 };
 
 export default LoginPage;

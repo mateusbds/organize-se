@@ -38,21 +38,21 @@ export const success: SimplePaletteColorOptions = {
 };
 
 export const grey: ColorPartial = {
-  '50': '#fafafa',
-  '100': '#f5f5f5',
-  '200': '#eeeeee',
-  '300': '#e0e0e0',
-  '400': '#bdbdbd',
-  '500': '#9e9e9e',
-  '600': '#757575',
-  '700': '#616161',
-  '800': '#424242',
-  '900': '#212121',
+  50: '#FAFAFA',
+  100: '#F9FAFB',
+  200: '#F4F6F8',
+  300: '#DFE3E8',
+  400: '#C4CDD5',
+  500: '#919EAB',
+  600: '#637381',
+  700: '#454F5B',
+  800: '#212B36',
+  900: '#161C24',
   A100: '#f5f5f5',
   A200: '#eeeeee',
   A400: '#bdbdbd',
   A700: '#616161',
-};
+} as const;
 
 export const text: Partial<TypeText> = {
   primary: 'rgba(0, 0, 0, 0.87)',
@@ -81,7 +81,9 @@ export const action: Partial<TypeAction> = {
   activatedOpacity: 0.12,
 };
 
-const common = {
+export const common = {
+  black: '#000',
+  white: '#fff',
   primary,
   secondary,
   error,

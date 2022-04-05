@@ -7,8 +7,10 @@ import {
   Theme,
 } from '@mui/material';
 
+import { NAVBAR_HEIGHT } from '../Navbar/styled';
+
 export const DRAWER_WIDTH_OPEN = 280;
-export const DRAWER_WIDTH_COLLAPSED = 64;
+export const DRAWER_WIDTH_COLLAPSED = 92;
 
 export const openedMixin = (theme: Theme): CSSObject => ({
   width: DRAWER_WIDTH_OPEN,
@@ -26,10 +28,6 @@ export const closedMixin = (theme: Theme): CSSObject => ({
   }),
   overflowX: 'hidden',
   width: DRAWER_WIDTH_COLLAPSED,
-  // width: `calc(${theme.spacing(7)} + 1px)`,
-  // [theme.breakpoints.up('sm')]: {
-  //   width: `calc(${theme.spacing(8)} + 1px)`,
-  // },
 });
 
 export const DrawerHeader = styled('div')(({ theme }) => ({
@@ -39,6 +37,7 @@ export const DrawerHeader = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 1),
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
+  height: NAVBAR_HEIGHT,
 }));
 
 export const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop: string) => !['open'].includes(prop) })(
@@ -61,16 +60,19 @@ export const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop: string) => !
 export const ListItemButtonStyled = styled(MuiListItemButton)(({ theme, selected }) => ({
   marginTop: theme.spacing(0.5),
   marginBottom: theme.spacing(0.5),
-  padding: '8px 12px',
+  marginLeft: theme.spacing(1.1),
+  marginRight: theme.spacing(1),
+  paddingLeft: theme.spacing(2),
+  paddingRight: theme.spacing(2),
   ...theme.typography.subtitle2,
-  color: selected ? theme.palette.primary.main : theme.palette.text.primary,
+  color: selected ? theme.palette.primary.main : theme.palette.text.secondary,
 }));
 
-export const ListItemIconStyled = styled(MuiListItemIcon)({
-  width: 22,
-  height: 22,
+export const ListItemIconStyled = styled(MuiListItemIcon)(({ theme }) => ({
+  width: 24,
+  height: 24,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  '& svg': { width: '100%', height: '100%' },
-});
+  '& svg': { width: '100%', height: '100%', color: 'inherit' },
+}));

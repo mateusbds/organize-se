@@ -5,8 +5,8 @@ export default function Card(theme: Theme): Components<Theme> {
     MuiCard: {
       styleOverrides: {
         root: {
-          boxShadow: theme.shadows[4],
-          borderRadius: Number(theme.shape.borderRadius) * 2,
+          boxShadow: theme.customShadows?.card,
+          borderRadius: Number(theme.shape.borderRadius) * 4,
         },
       },
     },

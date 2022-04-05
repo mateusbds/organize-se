@@ -1,3 +1,5 @@
+import { DASHBOARD_ROUTES } from '@presentation/routes';
+
 type Item = {
   name: string;
   link: string;
@@ -7,17 +9,17 @@ type Item = {
 const SIDEBAR_ITEMS: Item[] = [
   {
     name: 'Início',
-    link: '/',
+    link: DASHBOARD_ROUTES.home,
     icon: 'majesticons:home-simple-line',
   },
   {
     name: 'Workspaces',
-    link: '/workspaces',
+    link: DASHBOARD_ROUTES.workspaces,
     icon: 'majesticons:document-line',
   },
   {
     name: 'Calendário',
-    link: '/calendar',
+    link: DASHBOARD_ROUTES.calendar,
     icon: 'majesticons:calendar-line',
   },
 ];

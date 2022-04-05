@@ -1,4 +1,5 @@
 import type {} from '@mui/lab/themeAugmentation';
+import { CustomShadows } from '@theme/shadows';
 export {};
 
 declare module '@mui/material/styles/createPalette' {
@@ -8,8 +9,8 @@ declare module '@mui/material/styles/createPalette' {
   }
 }
 
-// declare module '@mui/material/styles/createTheme'{
-//   interface Theme {
-
-//   }
-// }
+declare module '@mui/material/styles/createTheme' {
+  interface Theme {
+    customShadows?: CustomShadows;
+  }
+}

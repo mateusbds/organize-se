@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Divider, IconButton, List, ListItemText, Stack, Typography, useTheme } from '@mui/material';
@@ -16,7 +16,17 @@ interface ListItemButtonProps {
   href: string;
 }
 
-export function getActive(path: string, pathname: string, asPath: string) {
+interface GetActiveParams {
+  path: string;
+  pathname: string;
+  asPath: string;
+  exact?: boolean;
+}
+
+export function getActive({ path, pathname, asPath, exact }: GetActiveParams): boolean {
+  if (exact) {
+    return pathname === path;
+  }
   return pathname.includes(path) || asPath.includes(path);
 }
 
@@ -26,25 +36,34 @@ const ListItemButton: React.FC<ListItemButtonProps> = ({ href, children }) => {
   return (
     <Link passHref href={href}>
       <UnstyledLink>
-        <ListItemButtonStyled selected={getActive(href, pathname, asPath)}>{children}</ListItemButtonStyled>
+        <ListItemButtonStyled selected={getActive({ path: href, pathname, asPath, exact: true })}>
+          {children}
+        </ListItemButtonStyled>
       </UnstyledLink>
     </Link>
   );
 };
 
-const Sidebar = () => {
-  const [open, setOpen] = useState(false);
+type SidebarProps = {
+  isOpen: boolean;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
+};
 
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
   return (
-    <Drawer variant="permanent" open={open}>
+    <Drawer
+      variant="permanent"
+      open={isOpen}
+      PaperProps={{ sx: { bgcolor: 'background.default', borderRightStyle: 'dashed' } }}
+    >
       <DrawerHeader>
-        {open && (
+        {isOpen && (
           <Typography sx={{ m: 'auto' }} variant="h3">
             Organize-se
           </Typography>
         )}
-        <IconButton onClick={() => setOpen((prev) => !prev)}>
-          {open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+        <IconButton onClick={() => setIsOpen((prev) => !prev)}>
+          {isOpen ? <ChevronLeftIcon /> : <ChevronRightIcon />}
         </IconButton>
       </DrawerHeader>
       <Divider />
@@ -56,7 +75,7 @@ const Sidebar = () => {
               <ListItemIconStyled>
                 <Iconify icon={item.icon} />
               </ListItemIconStyled>
-              <ListItemText disableTypography primary={item.name} sx={{ opacity: open ? 1 : 0 }} />
+              {<ListItemText disableTypography primary={item.name} sx={{ opacity: isOpen ? 1 : 0 }} />}
             </ListItemButton>
           ))}
         </List>

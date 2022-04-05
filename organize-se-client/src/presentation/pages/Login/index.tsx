@@ -23,7 +23,7 @@ interface FormValues {
   password: string;
 }
 
-const Login: React.FC<Props> = ({ authenticate }) => {
+const LoginPage: React.FC<Props> = ({ authenticate }) => {
   const formik = useFormik<FormValues>({
     initialValues: {
       email: '',
@@ -78,4 +78,4 @@ const Login: React.FC<Props> = ({ authenticate }) => {
   );
 };
 
-export default Login;
+export default LoginPage;

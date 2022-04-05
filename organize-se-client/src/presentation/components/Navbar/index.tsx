@@ -1,21 +1,29 @@
-import { AppBar as MuiAppBar, Toolbar, IconButton, Button, styled, alpha, useTheme } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { IconButton, useTheme } from '@mui/material';
+import { AccountCircle } from '@mui/icons-material';
 
-const AppBar = styled(MuiAppBar)(({ theme }) => ({
-  backgroundColor: alpha(theme.palette.background.default, 0.57),
-  color: theme.palette.getContrastText(theme.palette.background.default),
-}));
+import { AppBar, Toolbar } from './styled';
 
-const Navbar = () => {
+type NavbarProps = {
+  isCollapsed: boolean;
+};
+
+const Navbar: React.FC<NavbarProps> = ({ isCollapsed }) => {
   const theme = useTheme();
 
   return (
-    <AppBar position="fixed">
+    <AppBar isCollapsed={isCollapsed} position="fixed">
       <Toolbar>
-        <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-          <MenuIcon />
+        <IconButton
+          sx={{ ml: 'auto' }}
+          size="large"
+          aria-label="account of current user"
+          aria-controls="menu-appbar"
+          aria-haspopup="true"
+          // onClick={handleMenu}
+          color="inherit"
+        >
+          <AccountCircle />
         </IconButton>
-        <Button color="inherit">Login</Button>
       </Toolbar>
     </AppBar>
   );
